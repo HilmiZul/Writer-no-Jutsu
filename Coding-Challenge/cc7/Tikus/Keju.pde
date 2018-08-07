@@ -7,7 +7,7 @@ class Keju {
     x = random(r, width-r);
     y = random(r, height-r);
   }
-  
+
   void reset() {
     x = random(r, width-r);
     y = random(r, height-r);
@@ -16,7 +16,7 @@ class Keju {
   void show() {
     fill(255, 200, 0);
     noStroke();
-    ellipse(x, y, r, r);
+    //ellipse(x, y, r, r);
+    image(cheese, x, y);
   }
-  
 }
