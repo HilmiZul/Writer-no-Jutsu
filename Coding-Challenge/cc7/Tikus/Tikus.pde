@@ -1,34 +1,47 @@
 Mouse tikus;
 Keju keju;
+Senteg senteg;
 
-PImage tikusUp, tikusRight, tikusDown, tikusLeft;
-int stamina = 0;
+PImage tikusUp, tikusRight, tikusDown, tikusLeft, bg, cheese;
+float stamina = 0;
+int skor;
+PFont font;
 
 void setup() {
   size(600, 600);
   tikus = new Mouse();
   keju = new Keju();
+  senteg = new Senteg();
   
+  bg = loadImage("jukut.png");
   tikusUp = loadImage("tikusUp.png");
   tikusRight = loadImage("tikusRight.png");
   tikusDown = loadImage("tikusDown.png");
   tikusLeft = loadImage("tikusLeft.png");
+  cheese = loadImage("keju.png");
+  
+  font = createFont("Prototype", 50);
 }
 
 void draw() {
-  background(50, 200, 0);
+  smooth();
+  //background(50, 200, 0);
+  background(bg);
   
   tikus.show();
   tikus.move();
   tikus.eat(keju);
   tikus.cekTepi();
+  tikus.kasenteg(senteg);
   
   keju.show();
   
-  fill(255, 100, 100);
-  noStroke();
+  senteg.show();
+  
+  fill(255);
   textSize(35);
-  text(stamina, 32, 37);
+  textFont(font);
+  text(skor, 32, 45);
 }
 
 void keyPressed() {
