@@ -14,6 +14,7 @@ class Mouse {
     x = width/2;
     y = height/2;
     stamina = 0;
+    skor = 0;
   }
   
   void show() {
@@ -50,16 +51,27 @@ class Mouse {
   void eat(Keju k){
     if(x > k.x && x < k.x + tikusUp.width/2 || x + tikusUp.width/2 > k.x && x + tikusUp.width/2 < k.x + tikusUp.width/2) {
       if(y > k.y && y < k.y + tikusUp.width/2) {
-        stamina = stamina + 1;
+        stamina = stamina + 0.25;
+        skor++;
         k.reset();
       }
     }
   }
   
+  void kasenteg(Senteg s) {
+    if(x > s.x && x < s.x + tikusUp.width/2 || x + tikusUp.width/2 > s.x && x + tikusUp.width/2 < s.x + tikusUp.width/2) {
+      if(y > s.y && y < s.y + tikusUp.width/2) {
+        stamina = stamina - 0.25;
+        skor--;
+        s.reset();
+      }
+    }
+  }
+  
   void cekTepi() {
-    if((x > width + tikusUp.width/2) || (x < 0)) {
+    if((x > width + tikusUp.width) || (x < 0 - tikusUp.width)) {
       reset();
-    } else if((y < 0) || (y > height - tikusUp.height/2)){
+    } else if((y < 0 - tikusUp.height) || (y > height + tikusUp.height)){
       reset();
     }  
   }  
