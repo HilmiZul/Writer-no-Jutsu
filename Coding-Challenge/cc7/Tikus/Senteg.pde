@@ -11,6 +11,6 @@ class Senteg {
   }
   
   void show() {
-    image(sentegImg, x, y);
+    //image(sentegImg, x, y);
   } 
 }

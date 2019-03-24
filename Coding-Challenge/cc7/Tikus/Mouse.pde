@@ -63,7 +63,7 @@ class Mouse {
       if(y > s.y && y < s.y + tikusUp.width/2) {
         stamina = stamina - 0.25;
         skor--;
-        s.reset();
+        //s.reset();
       }
     }
   }
